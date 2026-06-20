@@ -1,7 +1,77 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import PostList from '../components/PostList.astro';
+import NoteBlock from '../components/NoteBlock.astro';
+import { getCollection } from 'astro:content';
+
+const allArticles = await getCollection('articles');
+const latest = allArticles
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 5);
 ---
 
-<Layout title="Home">
-  <p class="text-white">Layout test — nav and footer should appear.</p>
+<Layout title="Home" description="A curious engineer's notebook on the internet. Systems, architecture, databases, AI — and the ideas worth understanding before you need them.">
+
+  <!-- Hero -->
+  <section class="py-12 border-b border-white/[0.06]">
+    <div class="inline-flex items-center gap-2 text-[10px] text-amber-500 border border-amber-500/30 px-3 py-1.5 mb-8 tracking-[0.2em] uppercase">
+      <span>●</span>
+      Curiosity Compounds
+    </div>
+
+    <h1 class="text-5xl font-extrabold text-white leading-[1.1] tracking-tight mb-5">
+      Learn before you <span class="text-amber-500">need</span> it.
+    </h1>
+
+    <p class="text-slate-400 text-lg leading-relaxed mb-6 max-w-lg">
+      Understanding compounds over time. Most people learn when circumstances force them to.
+      This is a different approach.
+    </p>
+
+    <p class="text-slate-500 text-sm leading-loose mb-10 max-w-lg">
+      I'm <strong class="text-slate-300 font-medium">Navneet</strong> — a curious engineer documenting
+      what I'm learning in public. Systems, architecture, databases, AI — and occasionally books and life.
+      No guru. No authority. Just curiosity, honest notes, and the internet.
+    </p>
+
+    <div class="flex items-center gap-6">
+      <a
+        href="/articles"
+        class="text-[11px] tracking-[0.15em] uppercase border border-white text-white px-5 py-2.5 hover:bg-white hover:text-black transition-colors"
+      >
+        Read Articles →
+      </a>
+      <a
+        href="/about"
+        class="text-[11px] tracking-[0.15em] uppercase text-slate-500 hover:text-white transition-colors"
+      >
+        About
+      </a>
+    </div>
+  </section>
+
+  <!-- Philosophy Note -->
+  <NoteBlock>
+    <div class="text-slate-400 text-sm leading-loose">
+      <p class="font-medium text-slate-200 mb-2">I'm not an authority.</p>
+      <p>If you know something I don't — challenge my thinking.</p>
+      <p>If I'm wrong — correct me.</p>
+      <p>And if you're curious too — learn with me.</p>
+    </div>
+  </NoteBlock>
+
+  <!-- Latest Articles -->
+  <section>
+    <div class="flex items-center justify-between mb-8">
+      <h2 class="text-white font-bold text-xl">Latest articles</h2>
+      <a
+        href="/articles"
+        class="text-[11px] tracking-[0.15em] uppercase text-slate-500 hover:text-white transition-colors"
+      >
+        All Articles →
+      </a>
+    </div>
+    <PostList posts={latest} />
+  </section>
+
 </Layout>

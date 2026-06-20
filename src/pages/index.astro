@@ -13,29 +13,24 @@ const latest = allArticles
 <Layout title="Home" description="A curious engineer's notebook on the internet. Systems, architecture, databases, AI — and the ideas worth understanding before you need them.">
 
   <!-- Hero -->
-  <section class="relative py-16 border-b border-white/[0.05] overflow-hidden">
-    <!-- Teal glow -->
-    <div class="pointer-events-none absolute -top-32 -right-32 w-[600px] h-[600px] rounded-full opacity-[0.07]"
-      style="background: radial-gradient(circle, #06b6d4 0%, transparent 70%);">
-    </div>
-
-    <div class="inline-flex items-center gap-2 text-[10px] text-cyan-400 border border-cyan-400/25 bg-cyan-400/[0.06] px-3 py-1.5 mb-10 tracking-[0.2em] uppercase rounded-full font-mono-brand">
-      <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 inline-block"></span>
+  <section class="py-24 border-b border-white/[0.06] max-w-2xl">
+    <div class="inline-flex items-center gap-2 text-[10px] text-cyan-400 border border-cyan-400/30 bg-cyan-400/[0.05] px-3 py-1.5 mb-12 tracking-[0.25em] uppercase rounded-full font-mono-brand">
+      <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 shrink-0"></span>
       Learning in Public
     </div>
 
-    <h1 class="font-mono-brand font-extrabold text-white leading-[1.1] mb-6" style="font-size: clamp(2.5rem, 6vw, 3.75rem);">
+    <h1 class="font-mono-brand font-extrabold text-white text-6xl leading-[1.1] tracking-tight mb-8">
       Learn before you<br/>
       <span class="text-cyan-400">need</span> it.
     </h1>
 
-    <p class="text-slate-400 text-lg leading-relaxed mb-5 max-w-lg">
+    <p class="text-slate-200 text-lg leading-relaxed mb-4 max-w-xl">
       Understanding compounds over time. Most people learn when circumstances force them to.
       This is a different approach.
     </p>
 
-    <p class="text-slate-500 text-sm leading-loose mb-10 max-w-lg">
-      I'm <strong class="text-slate-300 font-medium">Navneet</strong> — a curious engineer documenting
+    <p class="text-slate-400 text-base leading-relaxed mb-12 max-w-xl">
+      I'm <strong class="text-white font-medium">Navneet</strong> — a curious engineer documenting
       what I'm learning in public. Systems, architecture, databases, AI — and occasionally books and life.
       No guru. No authority. Just curiosity, honest notes, and the internet.
     </p>
@@ -43,13 +38,13 @@ const latest = allArticles
     <div class="flex items-center gap-4">
       <a
         href="/articles"
-        class="font-mono-brand text-[11px] tracking-[0.1em] uppercase bg-gradient-to-r from-cyan-500 to-cyan-400 text-black font-bold px-6 py-3 hover:from-cyan-400 hover:to-cyan-300 transition-all"
+        class="font-mono-brand text-xs tracking-[0.12em] uppercase bg-cyan-400 text-black font-bold px-7 py-3.5 hover:bg-cyan-300 transition-colors"
       >
         Start Reading →
       </a>
       <a
         href="/about"
-        class="font-mono-brand text-[11px] tracking-[0.1em] uppercase border border-white/20 text-slate-400 px-6 py-3 hover:border-white/40 hover:text-white transition-colors"
+        class="font-mono-brand text-xs tracking-[0.12em] uppercase border border-white/15 text-slate-300 px-7 py-3.5 hover:border-white/40 hover:text-white transition-colors"
       >
         The Mission
       </a>
@@ -58,8 +53,8 @@ const latest = allArticles
 
   <!-- Philosophy Note -->
   <NoteBlock>
-    <div class="text-slate-400 text-sm leading-loose">
-      <p class="font-medium text-slate-200 mb-2">I'm not an authority.</p>
+    <div class="text-slate-300 text-sm leading-loose">
+      <p class="font-medium text-white mb-2">I'm not an authority.</p>
       <p>If you know something I don't — challenge my thinking.</p>
       <p>If I'm wrong — correct me.</p>
       <p>And if you're curious too — learn with me.</p>

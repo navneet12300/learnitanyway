@@ -37,7 +37,7 @@ function postUrl(post: AnyPost): string {
             {formatDate(post.data.date)}
           </span>
         </div>
-        <p class="text-sm text-slate-500 leading-relaxed">{post.data.description}</p>
+        <p class="text-sm text-slate-400 leading-relaxed">{post.data.description}</p>
         {post.data.tags.length > 0 && (
           <div class="flex flex-wrap gap-3 mt-2">
             {post.data.tags.map((tag: string) => (

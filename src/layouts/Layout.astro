@@ -29,9 +29,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       .font-mono-brand { font-family: 'JetBrains Mono', monospace; }
     </style>
   </head>
-  <body class="bg-[#080808] text-slate-400 font-sans">
-    <nav class="border-b border-white/[0.05] px-6 py-4">
-      <div class="max-w-3xl mx-auto flex items-center justify-between">
+  <body class="bg-[#080808] text-slate-300 font-sans">
+    <nav class="border-b border-white/[0.05] px-8 py-5">
+      <div class="max-w-5xl mx-auto flex items-center justify-between">
         <a
           href="/"
           class="flex items-center gap-2.5 text-white text-[11px] tracking-[0.12em] uppercase font-semibold hover:text-cyan-400 transition-colors font-mono-brand"
@@ -51,12 +51,12 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       </div>
     </nav>
 
-    <main class="max-w-3xl mx-auto px-6 py-16">
+    <main class="max-w-5xl mx-auto px-8 py-20">
       <slot />
     </main>
 
-    <footer class="border-t border-white/[0.05] px-6 py-8 mt-8">
-      <div class="max-w-3xl mx-auto flex items-center justify-between text-[11px] text-slate-600 font-mono-brand">
+    <footer class="border-t border-white/[0.05] px-8 py-8 mt-8">
+      <div class="max-w-5xl mx-auto flex items-center justify-between text-[11px] text-slate-600 font-mono-brand">
         <span>© {new Date().getFullYear()} Navneet Mahajan</span>
         <a href="/rss.xml" class="hover:text-cyan-400 transition-colors">RSS Feed</a>
       </div>

@@ -1,0 +1,82 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const topics = [
+  {
+    theme: 'Systems & Architecture',
+    items: [
+      { title: 'B-trees and storage engines', status: 'writing' },
+      { title: 'How consensus algorithms work (Raft, Paxos)', status: 'planned' },
+      { title: 'Event sourcing in practice', status: 'planned' },
+      { title: 'The anatomy of a distributed system', status: 'planned' },
+    ],
+  },
+  {
+    theme: 'Databases',
+    items: [
+      { title: 'LSM trees vs B-trees — when each wins', status: 'exploring' },
+      { title: 'PostgreSQL internals', status: 'planned' },
+      { title: 'When to use which database', status: 'planned' },
+    ],
+  },
+  {
+    theme: 'DevOps & Infrastructure',
+    items: [
+      { title: 'Container networking explained', status: 'planned' },
+      { title: 'Kubernetes control plane internals', status: 'planned' },
+      { title: 'How DNS actually works', status: 'exploring' },
+    ],
+  },
+  {
+    theme: 'AI Engineering',
+    items: [
+      { title: 'Vector databases and embeddings', status: 'exploring' },
+      { title: 'Building RAG systems', status: 'planned' },
+      { title: 'LLM inference and KV cache', status: 'planned' },
+    ],
+  },
+];
+
+const statusColor: Record<string, string> = {
+  exploring: 'text-sky-500',
+  writing: 'text-amber-500',
+  planned: 'text-slate-600',
+};
+---
+
+<Layout title="Roadmap" description="Topics I'm learning, exploring, or planning to write about.">
+  <header class="mb-12 pb-8 border-b border-white/[0.06]">
+    <h1 class="text-3xl font-extrabold text-white mb-3">Roadmap</h1>
+    <p class="text-slate-500 text-sm">
+      Topics I'm learning, exploring, or planning to write about. Updated as I go.
+    </p>
+    <div class="flex gap-5 mt-5 text-[11px] tracking-wide">
+      <span class="text-amber-500">● writing</span>
+      <span class="text-sky-500">● exploring</span>
+      <span class="text-slate-600">● planned</span>
+    </div>
+  </header>
+
+  <div class="space-y-12">
+    {
+      topics.map((group) => (
+        <section>
+          <h2 class="text-white font-bold text-sm tracking-widest uppercase mb-5 flex items-center gap-3">
+            <span>{group.theme}</span>
+            <span class="h-px flex-1 bg-white/[0.06]"></span>
+          </h2>
+          <ul class="space-y-3">
+            {group.items.map((item) => (
+              <li class="flex items-baseline justify-between gap-4">
+                <span class="text-slate-400 text-sm">{item.title}</span>
+                <span class={`text-[11px] tracking-wide whitespace-nowrap shrink-0 ${statusColor[item.status]}`}>
+                  {item.status}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))
+    }
+  </div>
+</Layout>

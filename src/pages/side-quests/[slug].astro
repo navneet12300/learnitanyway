@@ -34,7 +34,7 @@ function formatDate(date: Date): string {
         post.data.tags.length > 0 && (
           <div class="flex flex-wrap gap-3 mb-4">
             {post.data.tags.map((tag: string) => (
-              <span class="text-[11px] text-amber-600 tracking-wide uppercase">{tag}</span>
+              <span class="text-[11px] text-cyan-500 tracking-wide uppercase">{tag}</span>
             ))}
           </div>
         )
@@ -43,18 +43,18 @@ function formatDate(date: Date): string {
         {post.data.title}
       </h1>
       <p class="text-slate-600 text-sm">{formatDate(post.data.date)}</p>
-      <div class="h-0.5 w-10 bg-amber-500 mt-6"></div>
+      <div class="h-0.5 w-10 bg-cyan-400 mt-6"></div>
     </header>
 
     <div
       class="prose prose-invert prose-slate max-w-none
         prose-headings:text-white prose-headings:font-bold prose-headings:tracking-tight
         prose-p:text-slate-400 prose-p:leading-loose
-        prose-a:text-amber-500 prose-a:no-underline hover:prose-a:underline
-        prose-code:text-amber-400 prose-code:bg-white/[0.06] prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm prose-code:before:content-none prose-code:after:content-none
+        prose-a:text-cyan-400 prose-a:no-underline hover:prose-a:underline
+        prose-code:text-cyan-400 prose-code:bg-white/[0.06] prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm prose-code:before:content-none prose-code:after:content-none
         prose-pre:bg-white/[0.05] prose-pre:border prose-pre:border-white/10 prose-pre:rounded-none
         prose-strong:text-slate-200
-        prose-blockquote:border-l-amber-500 prose-blockquote:text-slate-400 prose-blockquote:not-italic
+        prose-blockquote:border-l-cyan-400 prose-blockquote:text-slate-400 prose-blockquote:not-italic
         prose-hr:border-white/10
         prose-li:text-slate-400"
     >

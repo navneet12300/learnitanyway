@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(bash *)",
+      "PowerShell(npm create *)",
+      "PowerShell(npx create-astro@latest --help 2>&1 | Select-Object -First 40)",
+      "PowerShell(New-Item *)",
+      "Bash(npm list *)",
+      "Bash(npx astro *)",
+      "PowerShell(Get-ChildItem -Path \"C:\\\\Users\\\\UDAAN\\\\Documents\\\\blogs\" -File | ForEach-Object { $_.Name } | Sort-Object)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(npm run *)",
+      "Bash(ping -n 3 127.0.0.1)"
+    ]
+  }
+}

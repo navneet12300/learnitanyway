@@ -29,7 +29,7 @@ function postUrl(post: AnyPost): string {
         <div class="flex items-baseline justify-between gap-4 mb-1.5">
           <a
             href={postUrl(post)}
-            class="text-white font-semibold text-[15px] leading-snug hover:text-amber-500 transition-colors"
+            class="text-white font-semibold text-[15px] leading-snug hover:text-cyan-400 transition-colors"
           >
             {post.data.title}
           </a>
@@ -41,7 +41,7 @@ function postUrl(post: AnyPost): string {
         {post.data.tags.length > 0 && (
           <div class="flex flex-wrap gap-3 mt-2">
             {post.data.tags.map((tag: string) => (
-              <span class="text-[11px] text-amber-600 tracking-wide">{tag}</span>
+              <span class="text-[11px] text-cyan-600 tracking-wide">{tag}</span>
             ))}
           </div>
         )}

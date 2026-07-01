@@ -15,7 +15,7 @@ It's not. And the reason it works is the whole point of this article.
 
 ---
 
-*This is Day 2 of [The Architect's Mindset](/roadmap) — a series on the decisions behind modern software systems. [Day 1 covered how your system runs](/articles/2026-06-29-monolith-vs-microservices-modular-monolith-serverless) — monolith vs microservices. Today we look at something that comes before that, and that most teams decide by accident: **how many Git repositories your code lives in.***
+*Hi, I'm **Navneet R. Mahajan**. This is Day 2 of [The Architect's Mindset](/roadmap) — a series on the decisions behind modern software systems. [Day 1 covered how your system runs](/articles/2026-06-29-monolith-vs-microservices-modular-monolith-serverless) — monolith vs microservices. Today we look at something that comes before that, and that most teams decide by accident: **how many Git repositories your code lives in.***
 
 ---
 

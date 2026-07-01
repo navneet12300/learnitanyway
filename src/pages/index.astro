@@ -1,19 +1,18 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import PostList from '../components/PostList.astro';
-import NoteBlock from '../components/NoteBlock.astro';
 import { getCollection } from 'astro:content';
 
 const allArticles = await getCollection('articles');
-const latest = allArticles
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
-  .slice(0, 5);
+const sorted = allArticles.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const latest = sorted.slice(0, 5);
+const seriesCount = allArticles.filter(a => a.data.tags.includes('architects-mindset')).length;
 ---
 
 <Layout title="Home" description="A curious engineer's notebook on the internet. Systems, architecture, databases, AI — and the ideas worth understanding before you need them.">
 
   <!-- Hero -->
-  <section class="pt-4 pb-10 sm:pb-20 border-b border-white/[0.06] max-w-2xl">
+  <section class="pt-4 pb-10 sm:pb-16 border-b border-white/[0.06] max-w-2xl">
     <div class="inline-flex items-center gap-2 text-[10px] text-cyan-400 border border-cyan-400/30 bg-cyan-400/[0.05] px-3 py-1.5 mb-3 tracking-[0.25em] uppercase rounded-full font-mono-brand">
       <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 shrink-0"></span>
       LEARNING IN PUBLIC
@@ -42,33 +41,43 @@ const latest = allArticles
 
     <div class="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4">
       <a
-        href="/articles"
+        href="/articles/2026-06-21-architects-mindset-day-0"
         class="font-mono-brand text-xs tracking-[0.12em] uppercase bg-cyan-400 text-black font-bold px-7 py-3.5 hover:bg-cyan-300 transition-colors w-full sm:w-auto text-center"
       >
-        Read Articles →
+        Start with Day 0 →
       </a>
       <a
-        href="/about"
+        href="/articles"
         class="font-mono-brand text-xs tracking-[0.12em] uppercase border border-white/15 text-slate-300 px-7 py-3.5 hover:border-white/40 hover:text-white transition-colors w-full sm:w-auto text-center"
       >
-        About
+        Browse Articles
       </a>
     </div>
   </section>
 
-  <!-- Philosophy Note -->
-  <NoteBlock>
-    <div class="text-slate-300 text-sm leading-loose">
-      <p class="font-medium text-white mb-3">This is a notebook, not a course.</p>
-      <p>I write to understand things — not to teach them. Everything here is a work in progress.</p>
-      <p class="mt-3">Catch me getting something wrong? <span class="text-white">Tell me.</span></p>
-      <p>Working through the same ideas? <span class="text-white">Learn with me.</span></p>
+  <!-- Series Spotlight -->
+  <section class="py-10 sm:py-14 border-b border-white/[0.06]">
+    <div class="flex items-start gap-5">
+      <div class="w-px self-stretch bg-cyan-400 shrink-0"></div>
+      <div>
+        <p class="text-[10px] tracking-[0.2em] uppercase text-cyan-400/60 mb-2 font-mono-brand">Currently Writing</p>
+        <h2 class="text-white font-extrabold text-xl sm:text-2xl font-mono-brand mb-3">The Architect's Mindset</h2>
+        <p class="text-slate-400 text-sm leading-relaxed max-w-xl mb-6">
+          50 topics across 4 milestones — the decisions behind how modern software systems are designed, deployed, and scaled.
+          Not tutorials. Not theory. Just the trade-offs engineers actually face, explained one concept at a time.
+        </p>
+        <div class="flex flex-wrap items-center gap-4 sm:gap-6">
+          <span class="text-slate-600 text-xs font-mono-brand">{seriesCount} of 50 published</span>
+          <a href="/roadmap" class="text-xs font-mono-brand text-cyan-400 hover:text-cyan-300 transition-colors">View Roadmap →</a>
+          <a href="/articles/2026-06-21-architects-mindset-day-0" class="text-xs font-mono-brand text-slate-500 hover:text-white transition-colors">Start from Day 0 →</a>
+        </div>
+      </div>
     </div>
-  </NoteBlock>
+  </section>
 
   <!-- Latest Articles -->
-  <section>
-    <div class="flex items-center justify-between mb-8">
+  <section class="pt-10 sm:pt-14">
+    <div class="flex items-center justify-between mb-2">
       <h2 class="text-white font-bold text-xl font-mono-brand">Latest articles</h2>
       <a
         href="/articles"
@@ -77,6 +86,9 @@ const latest = allArticles
         All Articles →
       </a>
     </div>
+    <p class="text-slate-600 text-xs font-mono-brand mb-8">
+      New here? <a href="/articles/2026-06-21-architects-mindset-day-0" class="text-cyan-400/70 hover:text-cyan-400 transition-colors">Start with Day 0 →</a>
+    </p>
     <PostList posts={latest} />
   </section>
 

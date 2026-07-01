@@ -20,32 +20,37 @@ function formatDate(date: Date): string {
 function postUrl(post: AnyPost): string {
   return `/${post.collection}/${post.id}`;
 }
+
+function seriesLabel(post: AnyPost): string | null {
+  if (post.data.tags.includes('architects-mindset')) return 'The Architect\'s Mindset';
+  if (post.collection === 'side-quests') return 'Side Quest';
+  return null;
+}
 ---
 
 <ul class="divide-y divide-white/[0.06]">
   {
-    posts.map((post) => (
-      <li class="py-5 sm:py-6">
-        <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 sm:gap-4 mb-1.5">
-          <a
-            href={postUrl(post)}
-            class="text-white font-semibold text-[15px] leading-snug hover:text-cyan-400 transition-colors"
-          >
-            {post.data.title}
-          </a>
-          <span class="text-xs text-slate-600 whitespace-nowrap shrink-0">
-            {formatDate(post.data.date)}
-          </span>
-        </div>
-        <p class="text-sm text-slate-400 leading-relaxed">{post.data.description}</p>
-        {post.data.tags.length > 0 && (
-          <div class="flex flex-wrap gap-3 mt-2">
-            {post.data.tags.map((tag: string) => (
-              <span class="text-[11px] text-cyan-600 tracking-wide">{tag}</span>
-            ))}
+    posts.map((post) => {
+      const label = seriesLabel(post);
+      return (
+        <li class="py-5 sm:py-6">
+          {label && (
+            <p class="text-[10px] font-mono-brand tracking-[0.18em] uppercase text-cyan-400/50 mb-1">{label}</p>
+          )}
+          <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 sm:gap-4 mb-1.5">
+            <a
+              href={postUrl(post)}
+              class="text-white font-semibold text-[15px] leading-snug hover:text-cyan-400 transition-colors"
+            >
+              {post.data.title}
+            </a>
+            <span class="text-xs text-slate-600 whitespace-nowrap shrink-0">
+              {formatDate(post.data.date)}
+            </span>
           </div>
-        )}
-      </li>
-    ))
+          <p class="text-sm text-slate-400 leading-relaxed">{post.data.description}</p>
+        </li>
+      );
+    })
   }
 </ul>
